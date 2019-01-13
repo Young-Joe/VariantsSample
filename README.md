@@ -105,7 +105,7 @@ apply from: String.format('../variants/%1$s/appConfig.gradle', rootProject.ext.c
 
    this.ext则指的是appConfig.而且大家也可以看到我很省事儿的直接将应该在Flavor中定义的versionCode.versionName.SERVER_URL都直接写在了defaultConfig中了.只有applicationId还在Flavor中定义.(ps.applicationId不能在defaultConfig中,debug编译有可能会出现先后编译错误.可在项目中查看)
 
-4.  动态化配置依赖 
+4.  动态化依赖 Flavor
 
      直接在dependencies中即可,以后随便你加多少Flavor都不需要在维护
 
@@ -169,7 +169,7 @@ apply from: String.format('../variants/%1$s/appConfig.gradle', rootProject.ext.c
 
    1. 构建:必须构建**单一Flavor**才行.直接assembleRelease是不行的,拿不到currentFlavor.(如有大神知道欢迎告知)
 
-   2. 虽然是完工了,但是一路走下来坑还是略多.加班花了个通宵才完工.你需要一些Groovy的基本语法,比如**闭包**的特性,以及路径的获取'.\ : 当前目录之下', '..\:上级目录之下'.
+   2. 虽然是完工了,但是一路走下来坑还是略多.加班花了个通宵才完工.你需要一些Groovy的基本语法,比如**闭包**的特性,以及路径的获取 `.\ `: 当前目录之下, `..\`:上级目录之下.
 
    3. 在使用的时候也有很多需要注意的地方.比如**flavor的命名**和**Flavor的包名应一样**等一些问题.
 
