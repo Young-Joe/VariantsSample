@@ -11,6 +11,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
+        //这里最好不要用this.ext.vatiant.applicationId替代com.joe.variantssample
         applicationId "com.joe.variantssample"
 //        applicationId this.ext.vatiant.applicationId
 

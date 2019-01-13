@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
-//获取对应variant目录下的私有特殊appConfig.gradle文件
-apply from: String.format('../../variants/%1$s/appConfig.gradle', rootProject.ext.currentFlavor)
+apply from: 'appConfig.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion

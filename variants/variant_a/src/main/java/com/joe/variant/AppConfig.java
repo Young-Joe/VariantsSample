@@ -27,9 +27,6 @@ public @interface AppConfig {
     String QQ_APP_ID = BuildConfig.QQ_APP_ID;
     String QQ_APP_KEY = "QQ_APP_KEY";
 
-    /**
-     * 阿里百川意见反馈
-     */
     String ALI_FEEDBACK_KEY = "ALI_FEEDBACK_KEY";
     String ALI_FEEDBACK_App_SECRET = "ALI_FEEDBACK_App_SECRET";
 
