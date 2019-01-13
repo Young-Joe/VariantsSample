@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- app module下的xml文件只维护variant的公共数据 -->
+
+    <string name="txt_main_describe">\n
+        currentVariant : %1$s \n\n
+        AppName        : %2$s \n\n
+        applicationId  : %3$s \n\n
+        versionCode    : %4$s \n\n
+        versionName    : %5$s \n\n
+        serverUrl      : %6$s \n\n
+        QQ_APP_ID      : %7$s
+    </string>
+
+
+</resources>

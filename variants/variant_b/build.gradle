@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+//获取对应variant目录下的私有特殊appConfig.gradle文件
+apply from: String.format('../../variants/%1$s/appConfig.gradle', rootProject.ext.currentFlavor)
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        /**
+         * 注意:这里不能使用String.valueOf(),无效不被识别为字符串.需要将其作为字符串传给java
+         * 也可以这样写"String.valueOf(${this.ext.tencent.QQ_APP_ID})"
+         */
+        buildConfigField "String", "QQ_APP_ID", "\"${this.ext.tencent.QQ_APP_ID}\""
+
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation rootProject.ext.appCompatV7
+    api project(':base')
+}

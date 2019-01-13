@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+//获取对应variant目录下的私有特殊appConfig.gradle文件
+apply from: String.format('../variants/%1$s/appConfig.gradle', rootProject.ext.currentFlavor)
+//获取当前编译flavor对应路径下的sign
+final String signPath = String.format('../variants/%1$s/keystore/signing.properties', rootProject.ext.currentFlavor)
+final String keyPath = String.format('../variants/%1$s/keystore/key', rootProject.ext.currentFlavor)
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.joe.variantssample"
+//        applicationId this.ext.vatiant.applicationId
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionCode this.ext.vatiant.versionCode
+        versionName this.ext.vatiant.versionName
+
+        flavorDimensions "dimension"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "SERVER_URL", "${this.ext.vatiant.serverUrl}"
+
+    }
+
+    signingConfigs {
+        println "signPath:" + signPath
+        println "keyPath:" + keyPath
+        variant_a {
+            File keyFile = file(signPath)
+            Properties localProps = new Properties()
+            localProps.load(new FileInputStream(keyFile))
+            storeFile file(keyPath)
+            storePassword localProps["STORE_PASSWORD"]
+            keyAlias localProps["KEY_ALIAS"]
+            keyPassword localProps["KEY_PASSWORD"]
+        }
+        variant_b {
+            File keyFile = file(signPath)
+            Properties localProps = new Properties()
+            localProps.load(new FileInputStream(keyFile))
+            storeFile file(keyPath)
+            storePassword localProps["STORE_PASSWORD"]
+            keyAlias localProps["KEY_ALIAS"]
+            keyPassword localProps["KEY_PASSWORD"]
+        }
+    }
+
+    /**
+     * @notice flavor命名首字母必须为小写
+     *    这里:不要使用 applicationId this.ext.vatiant.applicationId
+     *    release包没问题,但是debug是有问题的.
+     */
+    productFlavors {
+        variant_a {
+            applicationId "com.joe.variant_a"
+        }
+        variant_b {
+            applicationId "com.joe.variant_b"
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            productFlavors.variant_a.signingConfig signingConfigs.variant_a
+            productFlavors.variant_b.signingConfig signingConfigs.variant_b
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if(variant.buildType.name.equals('release')){
+                outputFileName = "${this.ext.vatiant.app}_${variant.flavorName}_V${defaultConfig.versionName}_release.apk"
+            }else if(variant.buildType.name.equals('debug')){
+                outputFileName = "${this.ext.vatiant.app}_${variant.flavorName}_V${defaultConfig.versionName}_debug.apk"
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    //noinspection GradleCompatible
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation rootProject.ext.designCompat
+    implementation rootProject.ext.constraintLayout
+
+    implementation project(':extralib:alicloud')
+    implementation project(':extralib:tencent')
+
+    implementation project(':variants:' + rootProject.ext.currentFlavor)
+}

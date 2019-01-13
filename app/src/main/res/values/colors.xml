@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- app module下的xml文件只维护variant的公共数据 -->
+    <color name="translate">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="order_item">#c9d8fb</color>
+    <color name="green">#33CC99</color>
+    <color name="gray">#606060</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="gold">#FFD700</color>
+    <color name="orange">#FFA500</color>
+    <color name="light_gray">#A9A9A9</color>
+    <color name="warm_gray">#999999</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
+
+</resources>

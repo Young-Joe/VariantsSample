@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+//获取对应variant目录下的私有特殊appConfig.gradle文件
+apply from: String.format('../../variants/%1$s/appConfig.gradle', rootProject.ext.currentFlavor)
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        println 'QQ_APP_ID : ' + this.ext.tencent.QQ_APP_ID
+        manifestPlaceholders = [QQ_APP_ID: this.ext.tencent.QQ_APP_ID]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.appCompatV7
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.6'
+    api files('libs/open_sdk_r5756.jar')
+
+    println 'Flavor对应的依赖路径' + ':variants:' + rootProject.ext.currentFlavor
+    implementation project(':variants:' + rootProject.ext.currentFlavor)
+}

@@ -1,0 +1,13 @@
+ext {
+    vatiant = [
+            app: 'V-Sample-A',
+            applicationId: 'com.joe.variant_a',
+            versionCode: 11,
+            versionName: '1.1.1',
+            serverUrl: '"https://www.google.com"'
+    ]
+    tencent = [
+            //注意这里不能将其设置为String类型,因为清单文件中也需设置值
+            QQ_APP_ID: '111111'
+    ]
+}

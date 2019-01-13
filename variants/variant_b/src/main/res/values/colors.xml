@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 设置variant 需要改变的color -->
+    <color name="colorPrimary">#E35454</color>
+    <color name="colorPrimaryDark">#A02F43</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+</resources>

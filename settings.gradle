@@ -1,0 +1,3 @@
+include ':app', ':base',
+        ':extralib:tencent', ':extralib:alicloud',
+        ':variants:variant_a', ':variants:variant_b'
