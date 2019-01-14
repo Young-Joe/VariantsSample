@@ -10,7 +10,7 @@
 
 ​	无论是从项目的健壮性还是可维护性来说**好的开发工具搭配项目架构能让你事半功倍**
 
-​	**统一化管理**:我一直有个习惯配置统一化,无论是代码的配置还是gradle的依赖.这样在项目变动的时候,更改一处即可.想想,假如不这么做,漏该了一处,什么结果...
+​	**统一化管理**:我一直有统一配置的习惯,无论是代码的配置还是gradle的依赖.这样在项目变动的时候,更改一处即可.想想,假如不这么做,漏该了一处,什么结果...
 
 ####项目结构
 
@@ -49,7 +49,7 @@
 
 ##### 大功臣Groovy
 
-​	首先思考一下我们的理想效果:在vatiants中进行各自的配置后.无论是debug还是release都能根据当前编译的flavor来将其添加为app的依赖,并找到对应的配置文件和keystore来编译.也就是我们首先就是要知道如何才能**拿到当前编译的flavor**.很遗憾Gradle并没有提供该方法,但感谢stackoverflow上的大神提供思路,我们可以通过其他方法获得.
+​	首先思考一下我们的理想效果:在vatiants中进行各自的配置后.无论是debug还是release都能根据**当前编译的flavor来将其添加为app的依赖,并找到对应的配置文件和keystore来编译.**也就是我们首先就是要知道如何才能**拿到当前编译的flavor**.很遗憾Gradle并没有提供该方法,但感谢stackoverflow上的大神提供思路,我们可以通过其他方法获得.
 
 1. 拿到currentFlavor	
 
@@ -68,11 +68,11 @@
 
     **运行**.这里要说下运行如何看打印的日志.
 
-   ​	  debug情况下(也就是直接运行项目):
+   ​	  *debug情况下*(也就是直接运行项目):
 
    ![](https://i.loli.net/2019/01/13/5c3b4fc4c683b.png)
 
-   ​	 assemble情况下(命令行选择构建情况下):可以直接看到
+   ​	 *assemble情况下*(命令行选择构建情况下):可以直接看到
 
    ​					![](https://i.loli.net/2019/01/13/5c3b51371f075.png)
 
@@ -177,7 +177,7 @@ apply from: String.format('../variants/%1$s/appConfig.gradle', rootProject.ext.c
 
       地址:https://github.com/Young-Joe/VariantsSample
 
-      图附赠:
+      附图为我实现的Sample来打出的两个差异性包:
 
       ![](https://i.loli.net/2019/01/14/5c3b638fbf80f.jpg)
 
