@@ -177,7 +177,7 @@ apply from: String.format('../variants/%1$s/appConfig.gradle', rootProject.ext.c
 
       地址:https://github.com/Young-Joe/VariantsSample
 
-      附图为我实现的Sample来打出的两个差异性包:
+      附图为我实现的Sample来打出的两个差异性Release包:
 
       ![](https://i.loli.net/2019/01/14/5c3b638fbf80f.jpg)
 
