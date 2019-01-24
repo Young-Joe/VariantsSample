@@ -1,4 +1,4 @@
-## Gradle妙用,真正的统一化自动依赖管理
+##  Gradle妙用,真正的统一化自动依赖管理
 
 > ***本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布**
 
@@ -153,16 +153,9 @@ manifestPlaceholders = [QQ_APP_ID: this.ext.tencent.QQ_APP_ID]
 ### Tip
 
 1. 构建:必须构建**单一Flavor**才行.直接assembleRelease是不行的,拿不到currentFlavor.(如有大神知道欢迎告知)
-
 2. 虽然是完工了,但是一路走下来坑还是略多.加班花了个通宵才完工.你需要一些Groovy的基本语法,比如**闭包**的特性,以及路径的获取 `.\`: 当前目录之下, `..\`:上级目录之下.
-
 3. 在使用的时候也有很多需要注意的地方.比如**flavor的命名**和**Flavor的包名应一样**等一些问题.
-
 4. Sample中我创建了完整的项目,后续也会更新维护.里面也详细了注释.欢迎查看,建议.
-
 5. 地址:<https://github.com/Young-Joe/VariantsSample>
-
 6. 附图为我实现的Sample来打出的两个差异性Release包:
-    ![img](https://i.loli.net/2019/01/14/5c3b638fbf80f.jpg)
-
-    ![image-20190124195230313](/Users/qiaojianfeng/Library/Application Support/typora-user-images/image-20190124195230313.png)
+      ![img](https://i.loli.net/2019/01/14/5c3b638fbf80f.jpg)                                   ![image-20190124195230313](https://i.loli.net/2019/01/24/5c49aa192dd4c.jpg)
