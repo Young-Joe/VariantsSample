@@ -1,4 +1,4 @@
-## 高效的variant使用,真正的统一化自动依赖管理
+## Gradle妙用,真正的统一化自动依赖管理
 
 > ***本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布**
 
@@ -161,7 +161,8 @@ manifestPlaceholders = [QQ_APP_ID: this.ext.tencent.QQ_APP_ID]
 4. Sample中我创建了完整的项目,后续也会更新维护.里面也详细了注释.欢迎查看,建议.
 
 5. 地址:<https://github.com/Young-Joe/VariantsSample>
-   附图为我实现的Sample来打出的两个差异性Release包:
+
+6. 附图为我实现的Sample来打出的两个差异性Release包:
     ![img](https://i.loli.net/2019/01/14/5c3b638fbf80f.jpg)
-	![img](https://i.loli.net/2019/01/14/5c3b64fe2d895.jpg) 
-    ![img](https://i.loli.net/2019/01/14/5c3b64fe82b1f.jpg)
+
+    ![image-20190124195230313](/Users/qiaojianfeng/Library/Application Support/typora-user-images/image-20190124195230313.png)
