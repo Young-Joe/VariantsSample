@@ -2,7 +2,7 @@
           package="com.mocire.wechat">
 
     <application>
-
+        <!-- 设计该三方依赖的Manifest直接写在该组件中.最终App-Manifest会合并 -->
         <!--微信sdk回调页面-->
         <activity
             android:name="com.joe.tencent.wechat.WXEntryActivity"

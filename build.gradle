@@ -16,7 +16,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        //阿里云 反馈
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
@@ -50,8 +49,11 @@ ext {
  * @return
  */
 def getCurrentFlavor() {
+    //定义一个默认指定的flavor用于异常情况下的编译通过
+    final defaultFlavor = "variant_a"
     Gradle gradle = getGradle()
-    String taskName = gradle.getStartParameter().getTaskNames()[0]
+    //.getTaskNames()[0]也可以.但Jenkins构建时请使用getTaskRequests
+    String taskName = gradle.getStartParameter().getTaskRequests().toString()
     println "taskName : " + taskName
     if (taskName != null) {
         Pattern pattern
@@ -79,8 +81,8 @@ def getCurrentFlavor() {
             return flavor
         } else {
             println "currentFlavor:cannot_find_current_flavor"
-            return "variant_a"
+            return defaultFlavor
         }
     }
-    return "variant_a"
+    return defaultFlavor
 }

@@ -21,6 +21,7 @@ android {
         versionCode this.ext.vatiant.versionCode
         versionName this.ext.vatiant.versionName
 
+        //有需求的同学这里也同样可以增加维度.项目已运用
         flavorDimensions "dimension"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -107,5 +108,6 @@ dependencies {
     implementation project(':extralib:alicloud')
     implementation project(':extralib:tencent')
 
+    //自动依赖Flavor
     implementation project(':variants:' + rootProject.ext.currentFlavor)
 }
