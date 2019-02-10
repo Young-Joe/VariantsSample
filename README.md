@@ -1,3 +1,5 @@
+
+
 ##  Gradle妙用,真正的统一化自动依赖管理
 
 > ***本篇文章已授权微信公众号 guolin_blog （郭霖）独家发布**
@@ -20,7 +22,7 @@
 
 **差异化的实现有两种方式**
 
-首先我创建了两个Flavor:
+首先我创建了两个Flavor: 
 
 ```java
   productFlavors {
@@ -33,7 +35,7 @@
   }
 ```
 
-### **第一种:**直接在app-module的src下建立对应的flavor名相同的文件夹,并创建相应的java/res文件即可.
+### 第一种:直接在app-module的src下建立对应的flavor名相同的文件夹,并创建相应的java/res文件即可.
 
 如图: 
 
@@ -68,7 +70,7 @@
 
  ![img](https://i.loli.net/2019/01/13/5c3b5197b32ee.png)
 
-然后我们,针对当前编译的taskName处理下.就拿到了currentFlavor:**\*variant_a***.
+然后我们,针对当前编译的taskName处理下.就拿到了currentFlavor:**variant_a**.
 
 **运行**.这里要说下运行如何看打印的日志.
 
@@ -76,7 +78,9 @@
 
 ![img](https://i.loli.net/2019/01/13/5c3b4fc4c683b.png)
 
-**assemble情况下**(命令行选择构建情况下):可以直接看到  ![img](https://i.loli.net/2019/01/13/5c3b51371f075.png)
+**assemble情况下**(命令行选择构建情况下):可以直接看到  
+
+![img](https://camo.githubusercontent.com/1dc506341869eb636a3a7a6b6d7da970f810bc05/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30312f31332f356333623531333731663037352e706e67)      
 
 为了能够根据currentFlavor自动化获取配置路径 先看下Flavor中的配置: 
 
