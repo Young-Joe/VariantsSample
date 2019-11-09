@@ -11,6 +11,7 @@
         serverUrl      : %6$s \n\n
         QQ_APP_ID      : %7$s
     </string>
+    <string name="title_activity_base_business">BaseBusinessActivity</string>
 
 
 </resources>

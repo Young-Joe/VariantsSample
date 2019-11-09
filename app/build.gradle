@@ -80,9 +80,9 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            if(variant.buildType.name.equals('release')){
+            if (variant.buildType.name.equals('release')) {
                 outputFileName = "${this.ext.vatiant.app}_${variant.flavorName}_V${defaultConfig.versionName}_release.apk"
-            }else if(variant.buildType.name.equals('debug')){
+            } else if (variant.buildType.name.equals('debug')) {
                 outputFileName = "${this.ext.vatiant.app}_${variant.flavorName}_V${defaultConfig.versionName}_debug.apk"
             }
         }
@@ -97,6 +97,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
