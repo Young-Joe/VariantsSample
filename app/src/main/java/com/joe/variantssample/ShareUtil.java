@@ -8,6 +8,7 @@ import android.support.annotation.StringDef;
 import android.widget.Toast;
 
 import com.joe.base.AppUtils;
+import com.joe.tencent.qq.QQUtils;
 import com.tencent.connect.share.QQShare;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
@@ -61,7 +62,7 @@ public class ShareUtil {
                                  String shareIconUrl,
                                  OnShareEndListener onShareEndListener) {
         if (AppUtils.isInstallApp("com.tencent.mobileqq")) {
-            Tencent tencent = com.bjgoodwill.mobilemrb.qq.QQUtils.createInstance(context);
+            Tencent tencent = QQUtils.createInstance(context);
             Bundle bundle = new Bundle();
             //这条分享消息被好友点击后的跳转URL。
             bundle.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_DEFAULT);

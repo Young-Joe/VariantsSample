@@ -1,4 +1,4 @@
-package com.bjgoodwill.mobilemrb.qq;
+package com.joe.tencent.qq;
 
 
 import android.content.Context;

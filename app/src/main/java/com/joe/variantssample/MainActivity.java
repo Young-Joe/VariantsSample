@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //仅演示
-                                ShareUtil.share2QQ(MainActivity.this, null, null, null, null, null);
+                                //TODO跳转分享
                             }
                         })
                         .show();
